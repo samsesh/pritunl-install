@@ -61,7 +61,7 @@ sleep 2
 clear
 
 #mkdir on temp
-cd /tmo
+cd /tmp
 mkdir pritunlinstall
 
 #change ui
