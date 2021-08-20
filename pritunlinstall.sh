@@ -2,12 +2,12 @@
 
 #update repo silent
 echo "update repository"
-sudo apt -qq update
+sudo apt -qq update >> /dev/null
 sleep 2
 clear
 #install figlet
 install font
-sudo apt -qq install figlet -y
+sudo apt -qq install figlet -y >> /dev/null
 sleep 2
 clear
 #install pritunl
@@ -26,7 +26,7 @@ sleep 2
 clear
 
 figlet "install Pritunl on ubuntu 20.04"
-sudo apt-get --assume-yes install gnupg
+sudo apt-get --assume-yes install gnupg >> /dev/null
 wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 sleep 2
 clear
@@ -38,19 +38,19 @@ clear
 
 figlet "install Pritunl on ubuntu 20.04"
 figlet "update repository"
-sudo apt -qq update
+sudo apt -qq update >> /dev/null
 sleep 2
 clear
 
 figlet "install Pritunl on ubuntu 20.04"
 figlet "install database and pritunl"
-sudo apt-get --assume-yes -qq install pritunl mongodb-org
+sudo apt-get --assume-yes -qq install pritunl mongodb-org >> /dev/null
 sleep 2
 clear
 
 figlet "install Pritunl on ubuntu 20.04"
 figlet "run database and pritunl"
-sudo systemctl start pritunl mongod
+sudo systemctl start pritunl mongod 
 sleep 2
 clear
 
@@ -70,14 +70,14 @@ cd /tmp/pritunlinstall
 git clone https://github.com/samsesh/pritunl-ui.git ui
 cd ui
 chmod +x update.sh
-sudo bash update.sh
+sudo bash update.sh 
 
 #carck pritunl
 figlet "carck pritunl"
 cd /tmp/pritunlinstall
-apt -qq install dialog -y
+apt -qq install dialog -y >> /dev/null
 mkdir pritunlfakeapi
 cd pritunlfakeapi
-wget https://github.com/Simonmicro/Pritunl-Fake-API/raw/master/server/setup.sh
+wget https://github.com/Simonmicro/Pritunl-Fake-API/raw/master/server/setup.sh 
 chmod +x setup.sh
 sudo bash setup.sh 
