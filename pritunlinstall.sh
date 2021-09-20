@@ -80,3 +80,5 @@ cd pritunlfakeapi
 wget https://github.com/samsesh/Pritunl-Fake-API/raw/master/server/setup-py2.7.sh
 chmod +x setup-py2.7.sh
 sudo bash setup-py2.7.sh
+service pritunl restart
+service mongod restart
