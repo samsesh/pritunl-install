@@ -6,7 +6,6 @@ sudo apt -qq update >> /dev/null
 sleep 2
 clear
 #install figlet
-install font
 sudo apt -qq install figlet -y >> /dev/null
 sleep 2
 clear
