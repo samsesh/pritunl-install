@@ -77,8 +77,8 @@ cd /tmp/pritunlinstall
 apt -qq install dialog -y >> /dev/null
 mkdir pritunlfakeapi
 cd pritunlfakeapi
-wget https://github.com/samsesh/Pritunl-Fake-API/raw/master/server/setup-py2.7.sh
-chmod +x setup-py2.7.sh
-sudo bash setup-py2.7.sh
+wget https://github.com/samsesh/Pritunl-Fake-API/raw/master/server/setup.sh
+chmod +x setup.sh
+sudo bash setup.sh
 service pritunl restart
 service mongod restart
