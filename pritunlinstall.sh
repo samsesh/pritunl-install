@@ -7,6 +7,7 @@ sleep 2
 clear
 #install figlet
 sudo apt -qq install figlet -y >> /dev/null
+sudo apt -qq install python3 -y >> /dev/null
 sleep 2
 clear
 #install pritunl
@@ -77,8 +78,12 @@ cd /tmp/pritunlinstall
 apt -qq install dialog -y >> /dev/null
 mkdir pritunlfakeapi
 cd pritunlfakeapi
-wget https://github.com/samsesh/Pritunl-Fake-API/raw/master/server/setup.sh
-chmod +x setup.sh
-sudo bash setup.sh
+## for old version
+#wget https://github.com/samsesh/Pritunl-Fake-API/raw/master/server/setup.sh
+#chmod +x setup.sh
+#sudo bash setup.sh
+wget https://raw.githubusercontent.com/samsesh/Pritunl-Fake-API/master/server/setup.py
+chmod +x setup.py
+sudo python3 setup.py --install
 service pritunl restart
 service mongod restart
