@@ -96,3 +96,11 @@ sudo bash update.sh
 cd /tmp/pihole-dns/
 chmod +x piholeinstall.sh 
 sudo bash piholeinstall.sh 
+
+
+
+#######
+figlet "your pritunl setup key"
+pritunl setup-key
+echo "you can active your pritunl"
+echo "licens key : active ultimate"
