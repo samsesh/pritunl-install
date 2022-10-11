@@ -2,6 +2,7 @@
 clear
 figlet "installing pihole"
 curl -sSL https://install.pi-hole.net | bash
-cp external.conf /etc/lighttpd/
-cp pihole-FTL.conf /etc/pihole/pihole-FTL.conf
+cd /tmp/pihole-dns/
+cp /tmp/pihole-dns/pihole-dns/external.conf /etc/lighttpd/
+cp /tmp/pihole-dns/pihole-dns/pihole-FTL.conf /etc/pihole/pihole-FTL.conf
 service lighttpd restart
