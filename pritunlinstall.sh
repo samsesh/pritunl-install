@@ -65,8 +65,13 @@ mkdir -p /tmp/pritunlinstall /tmp/pihole-dns
 cp -r ./pihole-dns /tmp/pihole-dns 
 cp ./piholeinstall.sh /tmp/pihole-dns/piholeinstall.sh 
 cd /tmp
-
-
+#change ui
+figlet "update web interface"
+cd /tmp/pritunlinstall
+git clone https://github.com/samsesh/pritunl-ui.git ui
+cd ui
+chmod +x update.sh
+sudo bash update.sh 
 
 #carck pritunl
 figlet "carck pritunl"
@@ -84,13 +89,7 @@ sudo python3 setup.py --install
 service pritunl restart
 service mongod restart
 
-#change ui
-figlet "update web interface"
-cd /tmp/pritunlinstall
-git clone https://github.com/samsesh/pritunl-ui.git ui
-cd ui
-chmod +x update.sh
-sudo bash update.sh 
+
 
 # install pihole dns server
 cd /tmp/pihole-dns/
