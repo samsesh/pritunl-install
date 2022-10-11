@@ -2,12 +2,12 @@
 
 #update repo silent
 echo "update repository"
-sudo apt -qq update >> /dev/null
+sudo apt-get -qq update >> /dev/null
 sleep 2
 clear
 #install figlet
-sudo apt -qq install figlet -y >> /dev/null
-sudo apt -qq install python3 -y >> /dev/null
+sudo apt-get -qq install figlet -y >> /dev/null
+sudo apt-get -qq install python3 -y >> /dev/null
 sleep 2
 clear
 #install pritunl
@@ -20,7 +20,7 @@ clear
 
 figlet "install Pritunl on ubuntu 20.04"
 sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
-deb https://repo.pritunl.com/stable/apt focal main
+deb https://repo.pritunl.com/stable/apt-get focal main
 EOF
 sleep 2
 clear
@@ -38,7 +38,7 @@ clear
 
 figlet "install Pritunl on ubuntu 20.04"
 figlet "update repository"
-sudo apt -qq update >> /dev/null
+sudo apt-get -qq update >> /dev/null
 sleep 2
 clear
 
@@ -61,21 +61,17 @@ sleep 2
 clear
 
 #mkdir on temp
+mkdir -p /tmp/pritunlinstall /tmp/pihole-dns 
+cp -r ./pihole-dns /tmp/pihole-dns 
+cp ./piholeinstall.sh /tmp/pihole-dns/piholeinstall.sh 
 cd /tmp
-mkdir pritunlinstall
 
-#change ui
-figlet "update web interface"
-cd /tmp/pritunlinstall
-git clone https://github.com/samsesh/pritunl-ui.git ui
-cd ui
-chmod +x update.sh
-sudo bash update.sh 
+
 
 #carck pritunl
 figlet "carck pritunl"
 cd /tmp/pritunlinstall
-apt -qq install dialog -y >> /dev/null
+apt-get -qq install dialog -y >> /dev/null
 mkdir pritunlfakeapi
 cd pritunlfakeapi
 ## for old version
@@ -87,3 +83,16 @@ chmod +x setup.py
 sudo python3 setup.py --install
 service pritunl restart
 service mongod restart
+
+#change ui
+figlet "update web interface"
+cd /tmp/pritunlinstall
+git clone https://github.com/samsesh/pritunl-ui.git ui
+cd ui
+chmod +x update.sh
+sudo bash update.sh 
+
+# install pihole dns server
+cd /tmp/pihole-dns/
+chmod +x piholeinstall.sh 
+sudo bash piholeinstall.sh 
