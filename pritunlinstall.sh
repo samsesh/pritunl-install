@@ -97,9 +97,9 @@ service mongod restart
 
 
 # install pihole dns server
-cd /tmp/pihole-dns/
-chmod +x piholeinstall.sh 
-sudo bash piholeinstall.sh 
+#cd /tmp/pihole-dns/
+#chmod +x piholeinstall.sh 
+#sudo bash piholeinstall.sh 
 
 
 
