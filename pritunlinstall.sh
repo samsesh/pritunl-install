@@ -7,7 +7,7 @@ sleep 2
 clear
 #install figlet
 sudo apt-get -qq install figlet -y >> /dev/null
-sudo apt-get -qq install python3 -y >> /dev/null
+sudo apt-get -qq install zip autossh tmux python3 -y >> /dev/null
 sleep 2
 clear
 #install pritunl
