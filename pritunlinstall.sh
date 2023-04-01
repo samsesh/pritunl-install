@@ -7,7 +7,7 @@ sleep 2
 clear
 #install figlet
 sudo apt-get -qq install figlet -y >> /dev/null
-sudo apt-get -qq install zip autossh tmux python3 -y >> /dev/null
+sudo apt-get -qq install zip unzip autossh tmux python3 -y >> /dev/null
 sleep 2
 clear
 #install pritunl
@@ -108,3 +108,6 @@ figlet "your pritunl setup key"
 pritunl setup-key
 echo "you can active your pritunl"
 echo "licens key : active ultimate"
+echo "for close installtion break whit use ctrl + c"
+sleep 360
+
