@@ -100,6 +100,16 @@ figlet "Optimizer system"
 bash <(curl -s https://raw.githubusercontent.com/samsesh/Ubuntu-Optimizer/main/ubuntu-optimizer.sh)
 sleep 5
 clear
+
+#warp
+figlet CFwarp
+# Download and run CFwarp.sh script
+wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh && bash CFwarp.sh <<EOF
+1
+1
+3
+EOF
+clear
 # end
 # install pihole dns server
 #cd /tmp/pihole-dns/
