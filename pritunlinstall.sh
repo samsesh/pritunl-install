@@ -9,12 +9,10 @@ check_if_running_as_root() {
     fi
 }
 sysup(){
-#update repo silent
 bash <(curl -s https://raw.githubusercontent.com/samsesh/Ubuntu-Optimizer/main/ubuntu-optimizer.sh)
 }
 
 req(){
-#install requerment
 sudo apt-get -qq install dialog figlet  python3 -y >> /dev/null
 sleep 2
 clear
