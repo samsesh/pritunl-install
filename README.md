@@ -1,5 +1,5 @@
 # pritunl-install
-## auto install and carck pritunl 
+## auto install and carck pritunl on ubuntu 20.04
 > just run this code 
 ``` bash
 bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/pritunlinstall.sh)
@@ -42,6 +42,11 @@ cd pritunl-install
 bash cfwarp.sh 
 ```
 > Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed - [cfwarp repository link](https://gitlab.com/rwkgyg/CFwarp/)
+---
+## ToDo
+- update installer for multi os
+- add uninstaller
+- automate setup key and carck on web 
 ---
 ## Link
 - [Pritunl Fake API](https://github.com/samsesh/Pritunl-Fake-API)
