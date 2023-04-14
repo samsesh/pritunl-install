@@ -151,11 +151,11 @@ pritunluse() {
 startinstall() {
     sysup
     req
-    ubuntukeyadd
 }
 pritunlI() {
     pritunladdsources
     pritunladdgnupgkey
+    ubuntukeyadd
     updaterepo
     pritunlinstall
     pritunlui
