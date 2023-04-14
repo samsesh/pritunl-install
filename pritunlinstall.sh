@@ -17,7 +17,7 @@ check_os() {
 
     # Check if the OS is Ubuntu 20.04
     if [ "$OS" != "Ubuntu" ] || [ "$VERSION" != "20.04" ]; then
-        echo "This script only works on Ubuntu 20.04"
+        echo "$(tput setaf 1)This script only works on Ubuntu 20.04$(tput sgr0)"
         exit 1
     fi
 }
@@ -191,7 +191,7 @@ check_instaled_mongod() {
         mongodI
     fi
 }
-check_if_running_as_root
 check_os
+check_if_running_as_root
 check_instaled_pritunl
 check_instaled_mongod
