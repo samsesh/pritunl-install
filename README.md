@@ -8,7 +8,6 @@ bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/pritun
 ``` bash
 git clone https://github.com/samsesh/pritunl-install.git && cd pritunl-install && tmux new -s pritunl-install 'sudo bash pritunlinstall.sh' 
 ```
-> [pritunl api](https://github.com/royalhaze/pritunl-private-api)
 ---
 ## DNS - pi-hole 
 - You can use the pi-hole program to manage DNS requests, just match your server with the gateway address in the servers after installing DNS.
@@ -42,5 +41,8 @@ cd pritunl-install
 ``` bash
 bash cfwarp.sh 
 ```
-> Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed
+> Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed - [warp repository link](https://gitlab.com/rwkgyg/CFwarp/)
 ---
+## Link
+- [pritunl unofficial api and docs](https://github.com/royalhaze/pritunl-private-api)
+- [pritunl docs](https://docs.pritunl.com/docs)
