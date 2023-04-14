@@ -26,8 +26,8 @@ bash piholeinstall.sh
 ```
 > To know more about the pi-hole project, you can check their website from [this link](https://pi-hole.net/), [vpn docs](https://docs.pi-hole.net/guides/vpn/openvpn/overview/), [Github](https://github.com/pi-hole)
 ---
-## warp
-- We use warp so that we are inside the cloudflare network and the IP address of the server is not leaked and remains clean.
+## cfwarp
+- We use cfwarp so that we are inside the cloudflare network and the IP address of the server is not leaked and remains clean.
 - To use it, just do the following
 1. clone project :
 ``` bash 
@@ -41,8 +41,15 @@ cd pritunl-install
 ``` bash
 bash cfwarp.sh 
 ```
-> Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed - [warp repository link](https://gitlab.com/rwkgyg/CFwarp/)
+> Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed - [cfwarp repository link](https://gitlab.com/rwkgyg/CFwarp/)
 ---
 ## Link
-- [pritunl unofficial api and docs](https://github.com/royalhaze/pritunl-private-api)
-- [pritunl docs](https://docs.pritunl.com/docs)
+- [Pritunl Fake API](https://github.com/samsesh/Pritunl-Fake-API)
+- [Pritunl unofficial api and documentation](https://github.com/royalhaze/pritunl-private-api)
+- [Pritunl documentation](https://docs.pritunl.com/)
+- [Pritunl custom ui](https://github.com/samsesh/pritunl-ui)
+- [Pi-Hole web-site](https://pi-hole.net/)
+- [Pi-Hole documentation ](https://docs.pi-hole.net/)
+- [Pi-Hole on Github](https://github.com/pi-hole)
+- [Ubuntu Optimizer](https://github.com/samsesh/Ubuntu-Optimizer)
+- [cfwarp repository link](https://gitlab.com/rwkgyg/CFwarp/)
