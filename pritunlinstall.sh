@@ -186,7 +186,6 @@ check_instaled_pritunl() {
 check_instaled_mongod() {
     if command -v mongo &>/dev/null; then
         echo $(tput setaf 2)MongoDB is already installed on this system.$(tput sgr0)
-        exit 1
     else
         startinstall
         mongodI
