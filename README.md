@@ -48,9 +48,9 @@ bash cfwarp.sh
 > Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed - [cfwarp repository link](https://gitlab.com/rwkgyg/CFwarp/)
 
 ## ToDo
-- update installer for multi os
-- add uninstaller
-- automate setup key and carck on web 
+- [ ] update installer for multi os
+- [ ] add uninstaller
+- [ ] automate setup key and carck on web 
 
 ## Link
 - [Pritunl Fake API](https://github.com/samsesh/Pritunl-Fake-API)
