@@ -13,6 +13,15 @@ apt update && apt -y install tmux && tmux new -s pritunl-install 'bash <(curl -s
 ```bash
 tmux a -d -t pritunl
 ```
+## how to uninstall ?
+- uninstall pritunl
+```bash
+sudo apt-get --purge autoremove pritunl*
+```
+- uninstall mongoDB
+```bash
+sudo apt-get --purge autoremove mongo*
+```
 ## DNS - pi-hole 
 - You can use the pi-hole program to manage DNS requests, just match your server with the gateway address in the servers after installing DNS.
 - I wrote a file here to install pihole, which instead of port 80 comes up on port 8000. To run it, just clone the project and execute the bash piholeinstall.sh command, which I have done step by step below.
