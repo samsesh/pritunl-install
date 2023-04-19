@@ -180,6 +180,7 @@ check_instaled_pritunl() {
     if command -v pritunl &>/dev/null; then
         echo $(tput setaf 2)pritunl is already installed on this system.$(tput sgr0)
         echo $(tput setaf 2)start crack and install new ui.$(tput sgr0)
+        sysup
         pritunlui
         pritunlcrack
         exit 1
