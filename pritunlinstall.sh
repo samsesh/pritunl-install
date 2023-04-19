@@ -117,7 +117,7 @@ mongodstartup() {
 
 pritunlui() {
     #change ui
-   
+
     figlet "update web interface"
     cd /tmp/pritunlinstall
     git clone https://github.com/samsesh/pritunl-ui.git ui
@@ -128,7 +128,7 @@ pritunlui() {
 
 pritunlcrack() {
     #carck pritunl
-    
+
     cd /tmp/pritunlinstall
     apt-get -qq install dialog -y >>/dev/null
     mkdir pritunlfakeapi
@@ -179,6 +179,9 @@ mongodI() {
 check_instaled_pritunl() {
     if command -v pritunl &>/dev/null; then
         echo $(tput setaf 2)pritunl is already installed on this system.$(tput sgr0)
+        echo $(tput setaf 2)start crack and install new ui.$(tput sgr0)
+        pritunlui
+        pritunlcrack
         exit 1
     else
         startinstall
@@ -198,4 +201,3 @@ check_os
 check_if_running_as_root
 check_instaled_mongod
 check_instaled_pritunl
-
