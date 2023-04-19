@@ -117,7 +117,7 @@ mongodstartup() {
 
 pritunlui() {
     #change ui
-    mkdir -p /tmp/pritunlinstall
+   
     figlet "update web interface"
     cd /tmp/pritunlinstall
     git clone https://github.com/samsesh/pritunl-ui.git ui
@@ -128,7 +128,7 @@ pritunlui() {
 
 pritunlcrack() {
     #carck pritunl
-    mkdir -p /tmp/pritunlinstall
+    
     cd /tmp/pritunlinstall
     apt-get -qq install dialog -y >>/dev/null
     mkdir pritunlfakeapi
@@ -153,6 +153,7 @@ pritunluse() {
 startinstall() {
     sysup
     req
+    mkdir -p /tmp/pritunlinstall
 }
 pritunlI() {
     pritunladdsources
