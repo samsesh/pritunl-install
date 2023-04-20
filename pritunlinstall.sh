@@ -177,10 +177,17 @@ mongodI() {
 check_instaled_pritunl() {
     if command -v pritunl &>/dev/null; then
         echo $(tput setaf 2)pritunl is already installed on this system.$(tput sgr0)
-        echo $(tput setaf 2)start crack and install new ui.$(tput sgr0)
+        sleep 2
+        echo $(tput setaf 3)start crack and install new ui.$(tput sgr0)
+        sleep 3
         sysup
+        sleep 1
+        clear
         pritunlui
+        sleep 1
+        clear
         pritunlcrack
+        pritunluse
         exit 1
     else
         startinstall
