@@ -36,8 +36,6 @@ monogodaddsources() {
     tee /etc/apt/sources.list.d/mongodb-org-4.4.list <<EOF
 deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
 EOF
-    sleep 2
-    clear
 }
 
 pritunladdsources() {
@@ -148,13 +146,12 @@ pritunluse() {
     echo "Exiting..."
 }
 
-#run
-
 startinstall() {
     sysup
     req
     mkdir -p /tmp/pritunlinstall
 }
+
 pritunlI() {
     pritunladdsources
     pritunladdgnupgkey
@@ -167,6 +164,7 @@ pritunlI() {
     pritunlstartup
     pritunluse
 }
+
 mongodI() {
     monogodaddsources
     mongodaddgnupgkey
@@ -198,6 +196,8 @@ check_instaled_mongod() {
         mongodI
     fi
 }
+
+#run
 check_os
 check_if_running_as_root
 check_instaled_mongod
