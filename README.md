@@ -58,7 +58,7 @@ bash cfwarp.sh
 
 ## ToDo
 - [ ] update installer for multi os
-- [ ] add uninstaller
+- [X] add uninstaller
 - [ ] automate setup key and carck on web 
 
 ## Link
