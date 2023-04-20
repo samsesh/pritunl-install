@@ -27,13 +27,13 @@ sysup() {
 }
 
 req() {
-    sudo apt-get -qq install dialog figlet python3 -y >>/dev/null
+    apt-get -qq install dialog figlet python3 -y >>/dev/null
     sleep 2
     clear
 }
 
 monogodaddsources() {
-    sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list <<EOF
+    tee /etc/apt/sources.list.d/mongodb-org-4.4.list <<EOF
 deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
 EOF
     sleep 2
@@ -41,76 +41,76 @@ EOF
 }
 
 pritunladdsources() {
-    sudo tee /etc/apt/sources.list.d/pritunl.list <<EOF
+    tee /etc/apt/sources.list.d/pritunl.list <<EOF
 deb http://repo.pritunl.com/stable/apt focal main
 EOF
 }
 
 pritunladdgnupgkey() {
-    sudo apt --assume-yes install gnupg
+    apt --assume-yes install gnupg
     gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-    gpg --armor --export 7568D9BB55FF9E5287D586017AE645C0CF8E292A | sudo tee /etc/apt/trusted.gpg.d/pritunl.asc
-    sudo apt update
+    gpg --armor --export 7568D9BB55FF9E5287D586017AE645C0CF8E292A | tee /etc/apt/trusted.gpg.d/pritunl.asc
+    apt update
     sleep 2
     clear
 }
 
 mongodaddgnupgkey() {
-    sudo apt-get --assume-yes install gnupg >>/dev/null
-    wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+    apt-get --assume-yes install gnupg >>/dev/null
+    wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
     sleep 2
     clear
 }
 
 ubuntukeyadd() {
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
     sleep 2
     clear
 }
 
 updaterepo() {
     figlet "update repository"
-    sudo apt-get -qq update >>/dev/null
+    apt-get -qq update >>/dev/null
     sleep 2
     clear
 }
 
 pritunlinstall() {
     figlet "install pritunl"
-    sudo apt-get --assume-yes -qq install pritunl mongodb-org >>/dev/null
+    apt-get --assume-yes -qq install pritunl mongodb-org >>/dev/null
     sleep 2
     clear
 }
 
 mongodinstall() {
     figlet "install database "
-    sudo apt-get --assume-yes -qq install mongodb-org >>/dev/null
+    apt-get --assume-yes -qq install mongodb-org >>/dev/null
     sleep 2
     clear
 }
 
 pritunlservice() {
     echo "run pritunl"
-    sudo systemctl start pritunl mongod
+    systemctl start pritunl
     sleep 2
     clear
 }
 
 mongodservice() {
     echo "run database"
-    sudo systemctl start mongod
+    systemctl start mongod
     sleep 2
     clear
 }
 
 pritunlstartup() {
-    sudo systemctl enable pritunl
+    systemctl enable pritunl
     sleep 2
     clear
 }
 
 mongodstartup() {
-    sudo systemctl enable mongod
+    systemctl enable mongod
     sleep 2
     clear
 }
@@ -123,7 +123,7 @@ pritunlui() {
     git clone https://github.com/samsesh/pritunl-ui.git ui
     cd ui
     chmod +x update.sh
-    sudo bash update.sh
+    bash update.sh
 }
 
 pritunlcrack() {
@@ -133,9 +133,12 @@ pritunlcrack() {
     apt-get -qq install dialog -y >>/dev/null
     mkdir pritunlfakeapi
     cd pritunlfakeapi
-    wget https://raw.githubusercontent.com/samsesh/Pritunl-Fake-API/master/server/setup.py
-    chmod +x setup.py
-    sudo python3 setup.py --install
+    wget https://raw.githubusercontent.com/samsesh/Pritunl-Fake-API/master/server/setup.up.py
+    chmod +x setup.up.py
+    python3 setup.up.py --reset
+    systemctl retart pritunl
+    python3 setup.up.py --install
+    systemctl restart pritunl
 }
 
 pritunluse() {
