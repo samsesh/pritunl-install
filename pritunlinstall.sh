@@ -32,6 +32,32 @@ req() {
     clear
 }
 
+ipcheck() {
+    # Get the local IP address
+    local_ip=$(hostname -I | awk '{print $1}')
+
+    # Get the public IP addresses
+    public_ipv4=$(curl -s https://api.ipify.org)
+    public_ipv6=$(curl -6s https://api6.ipify.org)
+
+    # Get the IPv6 address
+    ipv6=$(ip -6 addr show dev eth0 | awk '/inet6/ {print $2}')
+
+    # Check if the IPv6 address is assigned
+    if [ -z "$ipv6" ]; then
+        ipv6="$(tput setaf 2)Not assigned$(tput sgr0)" # Set the text to red if not assigned
+    fi
+
+    # Display the IP addresses
+    echo "IP Information:"
+    echo "------------------------------------"
+    echo "Local IP Address: $local_ip"
+    echo "Public IPv4 Address: $public_ipv4"
+    echo "Public IPv6 Address: $public_ipv6"
+    echo "IPv6 Address: $ipv6"
+
+}
+
 monogodaddsources() {
     tee /etc/apt/sources.list.d/mongodb-org-4.4.list <<EOF
 deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
@@ -141,6 +167,7 @@ pritunluse() {
     pritunl setup-key
     echo "you can active your pritunl"
     echo "licens key : active ultimate"
+    ipcheck
     echo "Press any key to exit..."
     read -n 1 -s
     echo "Exiting..."
