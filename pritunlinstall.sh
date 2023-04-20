@@ -133,7 +133,7 @@ pritunlcrack() {
     wget https://raw.githubusercontent.com/samsesh/Pritunl-Fake-API/master/server/setup.up.py
     chmod +x setup.up.py
     python3 setup.up.py --reset
-    systemctl retart pritunl
+    systemctl restart pritunl
     python3 setup.up.py --install
     systemctl restart pritunl
 }
