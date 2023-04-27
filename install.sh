@@ -4,8 +4,19 @@
 function print_loading {
     echo -n "$(tput setaf 6)$1$(tput sgr0)"
     while true; do
-        echo -n "$(tput setaf 7).$(tput sgr0)"
+        echo -n "$(tput setaf 5).$(tput sgr0)"
         sleep 0.5
+    done
+}
+
+# Set loading animation
+spin() {
+    spinner="/|\\-/|\\-"
+    while :; do
+        for i in $(seq 0 7); do
+            echo -ne "$(tput setaf 5)\r[${spinner:$i:1}] ${1}...$(tput sgr0)"
+            sleep 0.1
+        done
     done
 }
 
@@ -72,7 +83,7 @@ ipcheck() {
 
     # Check if the IPv6 address is assigned
     if [ -z "$ipv6" ]; then
-        ipv6="$(tput setaf 2)Not assigned$(tput sgr0)" # Set the text to red if not assigned
+        ipv6="$(tput setaf 2)Not assigned$(tput sgr0)" # Set the text to tput setaf 1 if not assigned
     fi
 
     # Display the IP addresses
@@ -134,7 +145,7 @@ EOF
         tee /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
 [mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/6.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/tput setaf 1hat/7/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
@@ -160,7 +171,7 @@ EOF
         tee /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
 [mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/6.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/tput setaf 1hat/8/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
@@ -202,7 +213,7 @@ EOF
         tee /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
 [mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/6.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/tput setaf 1hat/7/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
@@ -229,7 +240,7 @@ EOF
         tee /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
 [mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/6.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/tput setaf 1hat/8/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
@@ -314,3 +325,39 @@ EOF
         echo "Your operating system (${os_name}) is not supported."
     fi
 }
+
+crack() {
+    #carck pritunl
+    spin "carcking"
+    cd /tmp/pritunlinstall
+    mkdir pritunlfakeapi
+    cd pritunlfakeapi
+    wget https://raw.githubusercontent.com/samsesh/Pritunl-Fake-API/master/server/setup.up.py
+    chmod +x setup.up.py
+    python3 setup.up.py --tput sgr0
+    systemctl restart pritunl
+    python3 setup.up.py --install
+    systemctl restart pritunl
+}
+
+pritunlui() {
+    #change ui
+    spin "update web interface"
+    cd /tmp/pritunlinstall
+    git clone https://github.com/samsesh/pritunl-ui.git ui
+    cd ui
+    chmod +x update.sh
+    bash update.sh
+}
+
+serivceup() {
+    systemctl start pritunl mongod
+    systemctl enable pritunl mongod
+}
+
+check_root
+check_instaled
+install
+crack
+pritunlui
+serivceup
