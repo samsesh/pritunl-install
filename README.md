@@ -1,13 +1,13 @@
 # pritunl-install
-## auto install and carck pritunl on ubuntu 20.04
+## auto install and carck pritunl on linux server
 - just run this code 
 ``` bash
-bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/install.sh)
+bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/installfromgithub.sh)
 ```
 ---
 - just run this code with tmux.
 ``` bash
-apt update && apt -y install tmux && tmux new -s pritunl-install 'bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/install.sh)' 
+apt update && apt -y install tmux && tmux new -s pritunl-install 'bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/installfromgithub.sh)' 
 ```
 >  It is better to use tmux so that if the ssh connection with the server is interrupted, the command will not be broken, If the connection is interrupted, you can return to the installation page with the following command after connecting to the server
 ```bash
