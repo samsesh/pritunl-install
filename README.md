@@ -2,7 +2,7 @@
 ## auto install and carck pritunl on linux server
 - just run this code 
 ``` bash
-bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/installfromgithub.sh)
+bash <(curl -sSL https://github.com/samsesh/pritunl-install/raw/Localhost/install.sh)
 ```
 ---
 - just run this code with tmux.
