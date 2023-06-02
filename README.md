@@ -57,7 +57,7 @@ bash cfwarp.sh
 > Note: This feature is not recommended for more than 10-20 users and it causes a decrease in speed - [cfwarp repository link](https://gitlab.com/rwkgyg/CFwarp/)
 
 ## ToDo
-- [ ] update installer for multi os
+- [X] update installer for multi os
 - [X] add uninstaller
 - [ ] automate setup key and carck on web 
 
